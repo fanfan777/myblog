@@ -25,8 +25,6 @@ jobs:
           # 选择要使用的 node 版本
           node-version: 18
           # registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
-          
-      - name: Setup yarn
 
       # 运行构建脚本
       - name: Build VuePress site
