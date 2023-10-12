@@ -14,20 +14,24 @@ jobs:
     steps:
       - uses: actions/checkout@master
       
-
+      - name: 安装依赖：
+        run: yarn
+        
       - name: Setup Node.js
         uses: actions/setup-node@master
         with:
           # 选择要使用的 node 版本
           node-version: 18
-          registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
+          # registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
           
       - name: Setup yarn
 
       # 运行构建脚本
       - name: Build VuePress site
         run: yarn docs:build
-
+        
+      - name: publish 成功通知
+        run: echo "deploy success"
       # 查看 workflow 的文档来获取更多信息
       # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
