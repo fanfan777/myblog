@@ -10,9 +10,11 @@ on:
 jobs:
   docs:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
+          fetch-depth: 0
       
       - name: 安装依赖：
         run: yarn
